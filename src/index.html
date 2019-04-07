@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-TW" lang="zh-TW">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+
+    <meta name="description" content="Simple Calculator using CSS3 Grid Layout" />
+    <meta name="keywords" content="Calculator, CSS3, Grid Layout" />
+    <meta name="robots" content="index" />
+    <meta name="title" content="Simple Calculator using CSS3 Grid Layout" />
+    <meta property="og:description" content="Simple Calculator using CSS3 Grid Layout" />
+    <meta property="og:title" content="Simple Calculator using CSS3 Grid Layout" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pinkylam.me/playground/simple-calc/" />
+    <meta property="og:image" content="http://pinkylam.me/playground/simple-calc/assets/images/og/og-image.png" />
+    <meta property="og:image:secure_url" content="https://pinkylam.me/playground/simple-calc/assets/og/images/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Simple Calculator using CSS3 Grid Layout" />
+    <meta property="og:site_name" content="pinkylam.me" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="canonical" href="https://pinkylam.me/playground/simple-calc/" />
+
+    <!-- Web App Tags: For add to home screen -->
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/touch-icons/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/touch-icons/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/touch-icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/touch-icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/touch-icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/touch-icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/touch-icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/touch-icons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" href="assets/images/touch-icons/apple-touch-icon-57x57.png" />
+    <!-- Web App Tags -->
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon" />
+    <!-- Favicons -->
+
+    <title>Simple Calculator using CSS3 Grid Layout</title>
+
+    <!-- Google Tag Manager -->
+    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WPVPCR9');</script> -->
+    <!-- End Google Tag Manager -->
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPVPCR9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Calculator -->
+    <div class="calculator">
+      <div class="calculator__result">
+        <input type="text" id="result" class="js-calculator-result" value="0" onfocus="this.blur()">
+      </div>
+
+      <button type="button" class="calculator__button calculator__button--0 js-button-0" aria-label="0">0</button>
+      <button type="button" class="calculator__button calculator__button--1 js-button-1" aria-label="1">1</button>
+      <button type="button" class="calculator__button calculator__button--2 js-button-2" aria-label="2">2</button>
+      <button type="button" class="calculator__button calculator__button--3 js-button-3" aria-label="3">3</button>
+      <button type="button" class="calculator__button calculator__button--4 js-button-4" aria-label="4">4</button>
+      <button type="button" class="calculator__button calculator__button--5 js-button-5" aria-label="5">5</button>
+      <button type="button" class="calculator__button calculator__button--6 js-button-6" aria-label="6">6</button>
+      <button type="button" class="calculator__button calculator__button--7 js-button-7" aria-label="7">7</button>
+      <button type="button" class="calculator__button calculator__button--8 js-button-8" aria-label="8">8</button>
+      <button type="button" class="calculator__button calculator__button--9 js-button-9" aria-label="9">9</button>
+
+      <button type="button" class="calculator__button calculator__button--special calculator__button--add js-button-add" aria-label="Add">&plus;</button>
+      <button type="button" class="calculator__button calculator__button--special calculator__button--subtract js-button-subtract" aria-label="Subtract">&minus;</button>
+      <button type="button" class="calculator__button calculator__button--special calculator__button--12 js-button-multiply" aria-label="multiply">&times;</button>
+      <button type="button" class="calculator__button calculator__button--special calculator__button--multiply js-button-divide" aria-label="Divide">&divide;</button>
+
+      <div class="calculator__button calculator__button--placeholder"></div>
+      <button type="button" class="calculator__button calculator__button--special calculator__button--clear js-button-clear" aria-label="Clear">C</button>
+      <button type="button" class="calculator__button calculator__button--dot js-button-dot" aria-label="Dot">.</button>
+      <button type="button" class="calculator__button calculator__button--equal js-button-equal" aria-label="Equal">=</button>
+    </div>
+    <!-- /Calculator -->
+  </body>
+</html>
