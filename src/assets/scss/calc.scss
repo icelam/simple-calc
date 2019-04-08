@@ -1,6 +1,13 @@
 @import './colors';
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
 
+* {
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none
+}
+
 html,
 body {
   padding: 0;
@@ -46,8 +53,16 @@ body {
     outline: none;
     appearance: none;
 
+    &:active {
+      background-color: $color-calc-button-background-active;
+    }
+
     &--special {
       background-color: $color-calc-button-background2;
+
+      &:active {
+        background-color: $color-calc-button-background2-active;
+      }
     }
 
     &--0 {
@@ -103,6 +118,11 @@ body {
     }
     &--placeholder {
       grid-area: btnPlaceholder;
+      cursor: default;
+
+      &:active {
+        background-color: $color-calc-button-background;
+      }
     }
   }
 
