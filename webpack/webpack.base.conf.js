@@ -19,7 +19,7 @@ module.exports = {
           chunks: 'initial',
           name: 'vendor',
           enforce: true
-        },
+        }
       }
     }
   },
