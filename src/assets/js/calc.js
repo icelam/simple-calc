@@ -41,10 +41,8 @@ const SimpleCalculator = () => {
     if (equationFinish) {
       if (val !== symbolAdd && val !== symbolSubtract && val !== symbolMultiply && val !== symbolDivide && val !== symbolDot) {
         resultAreaEl.value = val;
-        equationFinish = true;
       } else {
         resultAreaEl.value += val;
-        equationFinish = false;
       }
     } else {
       // handling leading zeros
@@ -54,8 +52,9 @@ const SimpleCalculator = () => {
       }
 
       resultAreaEl.value += val;
-      equationFinish = false;
     }
+
+    equationFinish = false;
   };
 
   const _checkDot = () => {
