@@ -1,7 +1,7 @@
 {
   "name": "simple-calc",
   "version": "1.0.0",
-  "description": "CSS 3 grid layout simple calculator",
+  "description": "CSS3 grid layout simple calculator and Math.js",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,7 +20,7 @@
     "css-loader": "^1.0.0",
     "eslint": "^5.7.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-import-resolver-webpack": "^0.11.0",
+    "eslint-import-resolver-webpack": "^0.11.1",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.16.0",
     "file-loader": "^2.0.0",
@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "core-js": "^3.0.1"
+    "core-js": "^3.0.1",
+    "mathjs": "^5.9.0"
   }
 }

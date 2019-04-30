@@ -1,6 +1,6 @@
-# Simple Calculator using CSS3 Grid Layout #
+# Simple Calculator using CSS3 Grid Layout and Math.js #
 
-CSS3 Grid layout demo
+
 
 ### Run Project ###
 
@@ -10,9 +10,3 @@ CSS3 Grid layout demo
 ### Build Production ###
 
 * `npm run build`
-
-***
-
-### To Do ###
-* Fix floating point calculation problem
-* Replace eval() used in calculation

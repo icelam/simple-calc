@@ -1,3 +1,6 @@
+// load math.js
+import * as math from 'mathjs';
+
 const SimpleCalculator = () => {
   /* Constants */
   const resultAreaEl = document.querySelector('.js-calculator-result');
@@ -26,7 +29,13 @@ const SimpleCalculator = () => {
   };
 
   const _displayResult = (val) => {
-    resultAreaEl.value = val;
+    // Solve round-off errors: https://mathjs.org/docs/datatypes/numbers.html#roundoff-errors
+    if (typeof val === 'number') {
+      resultAreaEl.value = String(math.format(val, { precision: 14 }));
+    } else {
+      resultAreaEl.value = val;
+    }
+
     equationFinish = true;
   };
 
@@ -77,15 +86,8 @@ const SimpleCalculator = () => {
   const _calculateResult = () => {
     if (_lastIsNotSymbol()) {
       try {
-        /* To-fix: https://stackoverflow.com/questions/588004/is-floating-point-math-broken */
-        const calculationResult = eval(resultAreaEl.value);
-
-        // Do not round
+        const calculationResult = math.eval(resultAreaEl.value);
         _displayResult(calculationResult);
-
-        // Round Result to nearest 9 dp
-        // const roundedResult = Math.round(calculationResult * 1000000000) / 1000000000
-        // _displayResult(roundedResult);
       } catch (e) {
         _displayResult('Error');
         if (window.console) {
