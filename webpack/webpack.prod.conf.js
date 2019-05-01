@@ -2,13 +2,12 @@ const Webpack = require('webpack');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const baseWebpackConfig = require('./webpack.base.conf');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const baseWebpackConfig = require('./webpack.base.conf');
 
 module.exports = merge(baseWebpackConfig, {
   mode: 'production',
-  // devtool: 'source-map',
   stats: 'errors-only',
   bail: true,
   output: {
@@ -20,7 +19,7 @@ module.exports = merge(baseWebpackConfig, {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new Webpack.optimize.ModuleConcatenationPlugin(),
-    /*new UglifyJSPlugin({
+    new UglifyJSPlugin({
       uglifyOptions: {
         compress: {
           warnings: false,
@@ -31,9 +30,9 @@ module.exports = merge(baseWebpackConfig, {
       },
       sourceMap: true,
       parallel: true
-    }),*/
+    }),
     new MiniCssExtractPlugin({
-      filename: 'assets/css/bundle.css'
+      filename: 'assets/css/[name].bundle.css'
     }),
     new WorkboxPlugin.GenerateSW({
       clientsClaim: false,
@@ -42,7 +41,7 @@ module.exports = merge(baseWebpackConfig, {
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
-      reportFilename: '../bundle-analyzer-plugin-report.html',
+      reportFilename: '../bundle-analyzer-plugin-report.html'
     })
   ],
   module: {
@@ -71,7 +70,16 @@ module.exports = merge(baseWebpackConfig, {
               plugins: [
                 require('autoprefixer')(
                   {
-                    'browsers': ['>0.2%', 'last 2 versions', 'not dead', 'ie 10', 'ie 11']
+                    browsers: ['>0.2%', 'last 2 versions', 'not dead', 'ie 10', 'ie 11']
+                  }
+                ),
+                require('cssnano')(
+                  {
+                    preset: ['default', {
+                      discardComments: {
+                        removeAll: true
+                      }
+                    }]
                   }
                 )
               ]

@@ -1,4 +1,4 @@
-const Path = require('path');
+const path = require('path');
 const Webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
@@ -10,14 +10,13 @@ module.exports = merge(baseWebpackConfig, {
     chunkFilename: 'assets/js/[name].chunk.js'
   },
   devServer: {
-    inline: true, 
+    inline: true,
     host: '0.0.0.0',
-    port: 8888, 
+    port: 8888,
     overlay: {
       warnings: false,
       errors: true
-    },
-    //disableHostCheck: true
+    }
   },
   plugins: [
     new Webpack.DefinePlugin({
@@ -28,16 +27,16 @@ module.exports = merge(baseWebpackConfig, {
     rules: [
       {
         test: /\.(js)$/,
-        include: Path.resolve(__dirname, '../src'),
+        include: path.resolve(__dirname, '../src'),
         enforce: 'pre',
         loader: 'eslint-loader',
         options: {
-          emitWarning: true,
+          emitWarning: true
         }
       },
       {
         test: /\.(js)$/,
-        include: Path.resolve(__dirname, '../src'),
+        include: path.resolve(__dirname, '../src'),
         loader: 'babel-loader'
       },
       {
@@ -52,7 +51,7 @@ module.exports = merge(baseWebpackConfig, {
               plugins: [
                 require('autoprefixer')(
                   {
-                    'browsers': ['>0.2%', 'last 2 versions', 'not dead', 'ie 10', 'ie 11']
+                    browsers: ['>0.2%', 'last 2 versions', 'not dead', 'ie 10', 'ie 11']
                   }
                 )
               ]
