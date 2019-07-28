@@ -21,8 +21,8 @@ module.exports = merge(baseWebpackConfig, {
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new UglifyJSPlugin({
       uglifyOptions: {
+        warnings: false,
         compress: {
-          warnings: false,
           drop_debugger: true,
           drop_console: true
         },
@@ -70,7 +70,7 @@ module.exports = merge(baseWebpackConfig, {
               plugins: [
                 require('autoprefixer')(
                   {
-                    browsers: ['>0.2%', 'last 2 versions', 'not dead', 'ie 10', 'ie 11']
+                    grid: 'autoplace'
                   }
                 ),
                 require('cssnano')(
