@@ -1,3 +1,5 @@
+import 'core-js/stable';
+
 import '@style/calc.scss';
 
 import SimpleCalculator from '@js/calc';
