@@ -1,5 +1,7 @@
 const Webpack = require('webpack');
 const merge = require('webpack-merge');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -68,12 +70,12 @@ module.exports = merge(baseWebpackConfig, {
             options: {
               ident: 'postcss',
               plugins: [
-                require('autoprefixer')(
+                autoprefixer(
                   {
                     grid: 'autoplace'
                   }
                 ),
-                require('cssnano')(
+                cssnano(
                   {
                     preset: ['default', {
                       discardComments: {

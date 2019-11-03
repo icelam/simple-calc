@@ -1,6 +1,7 @@
 const path = require('path');
 const Webpack = require('webpack');
 const merge = require('webpack-merge');
+const autoprefixer = require('autoprefixer');
 const baseWebpackConfig = require('./webpack.base.conf');
 
 module.exports = merge(baseWebpackConfig, {
@@ -42,18 +43,14 @@ module.exports = merge(baseWebpackConfig, {
       {
         test: /\.s?css$/i,
         use: [
-          'style-loader?sourceMap=true',
+          'style-loader',
           'css-loader?sourceMap=true',
           {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
               plugins: [
-                require('autoprefixer')(
-                  {
-                    browsers: ['>0.2%', 'last 2 versions', 'not dead', 'ie 10', 'ie 11']
-                  }
-                )
+                autoprefixer()
               ]
             }
           },
