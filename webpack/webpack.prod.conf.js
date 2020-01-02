@@ -3,7 +3,6 @@ const merge = require('webpack-merge');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const baseWebpackConfig = require('./webpack.base.conf');
@@ -21,18 +20,6 @@ module.exports = merge(baseWebpackConfig, {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new Webpack.optimize.ModuleConcatenationPlugin(),
-    new UglifyJSPlugin({
-      uglifyOptions: {
-        warnings: false,
-        compress: {
-          drop_debugger: true,
-          drop_console: true
-        },
-        ecma: 8
-      },
-      sourceMap: true,
-      parallel: true
-    }),
     new MiniCssExtractPlugin({
       filename: 'assets/css/[name].bundle.css'
     }),
@@ -51,7 +38,12 @@ module.exports = merge(baseWebpackConfig, {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            envName: 'production'
+          }
+        }]
       },
       {
         test: /\.s?css/i,
