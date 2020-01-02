@@ -148,14 +148,20 @@ const SimpleCalculator = () => {
           e.shiftKey ? _buttonClick(symbolMultiply) : _buttonClick(e.which - 48);
           break;
 
+        // Numpad Symbol '*'
+        case 106:
+          _buttonClick(symbolMultiply);
+          break;
+
         // 'C' or 'Backspace'
         case 8:
         case 67:
           _clearResult();
           break;
 
-        // Symbol '.'
+        // Symbol '.' and Numpad Symbol '.'
         case 190:
+        case 110:
           _checkDot();
           break;
 
@@ -169,13 +175,20 @@ const SimpleCalculator = () => {
           e.shiftKey ? _buttonClick(symbolAdd) : _calculateResult();
           break;
 
-        // Symbol '-'
+        // Numpad Symbol '+'
+        case 107:
+          _buttonClick(symbolAdd);
+          break;
+
+        // Symbol '-' and Numpad Symbol '-'
         case 189:
+        case 109:
           _buttonClick(symbolSubtract);
           break;
 
-        // Symbol '/'
+        // Symbol '/' and Numpad Symbol '/'
         case 191:
+        case 111:
           _buttonClick(symbolDivide);
           break;
 
